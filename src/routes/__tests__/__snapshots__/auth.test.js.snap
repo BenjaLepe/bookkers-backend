@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth API routes POST /auth user data is valid body matches snapshot 1`] = `
+Object {
+  "code": 200,
+  "data": Object {
+    "access_token": Any<String>,
+    "token_type": "Bearer",
+    "user": Object {
+      "description": "soy una persona",
+      "email": "email_auth@uc.cl",
+      "first_name": "name1",
+      "id": 1,
+      "is_admin": false,
+      "last_name": "lastname1",
+      "profile_picture": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png",
+      "username": "username_auth",
+    },
+  },
+  "msg": "User logged successfully",
+}
+`;

@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User API routes GET /users/:user_id when me is passed instead of id body matches snapshot 1`] = `
+Object {
+  "code": 200,
+  "data": Object {
+    "description": "soy una persona",
+    "email": "email1@uc.cl",
+    "first_name": "name1",
+    "id": 1,
+    "is_admin": false,
+    "last_name": "lastname1",
+    "profile_picture": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png",
+    "username": "username1",
+  },
+  "msg": "User found successfully",
+}
+`;
+
+exports[`User API routes GET /users/:user_id when passed id corresponds to an existing user body matches snapshot 1`] = `
+Object {
+  "code": 200,
+  "data": Object {
+    "description": "soy una persona",
+    "email": "email2@uc.cl",
+    "first_name": "name2",
+    "id": 2,
+    "is_admin": false,
+    "last_name": "lastname2",
+    "profile_picture": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png",
+    "username": "username2",
+  },
+  "msg": "User found successfully",
+}
+`;
+
+exports[`User API routes GET /users/:user_id/liked_reviews when passed id corresponds to an existing user and they have at least one review body matches snapshot 1`] = `
+Object {
+  "code": 200,
+  "data": Object {
+    "likedReviews": Array [
+      Object {
+        "Book": Object {
+          "ISBN": "123-4-56-78910-0",
+          "author": "TestAuthor",
+          "editorial": "TestEditorial",
+          "genre": "TestGenre",
+          "id": 2,
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png",
+          "name": "TestBook",
+          "pages_number": 123,
+        },
+        "BookId": 2,
+        "User": Object {
+          "description": "soy una persona",
+          "email": "email6@uc.cl",
+          "first_name": "name6",
+          "id": 6,
+          "is_admin": false,
+          "last_name": "lastname6",
+          "profile_picture": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png",
+          "username": "username6",
+        },
+        "UserId": 6,
+        "body": "TestBody",
+        "id": 2,
+        "likes": Array [
+          5,
+        ],
+        "title": "TestTitle",
+      },
+    ],
+    "pageNumber": 1,
+    "totalPages": 1,
+  },
+  "msg": "Reviews found successfully",
+}
+`;
+
+exports[`User API routes GET /users/:user_id/liked_reviews when passed id corresponds to an existing user but they do not have reviews body matches snapshot 1`] = `
+Object {
+  "code": 200,
+  "msg": "Request successful, but user has not liked reviews",
+}
+`;
+
+exports[`User API routes GET /users/:user_id/reviews when passed id corresponds to an existing user and they have at least one review body matches snapshot 1`] = `
+Object {
+  "code": 200,
+  "data": Object {
+    "pageNumber": 1,
+    "reviews": Array [
+      Object {
+        "Book": Object {
+          "ISBN": "123-4-56-78910-0",
+          "author": "TestAuthor",
+          "editorial": "TestEditorial",
+          "genre": "TestGenre",
+          "id": 1,
+          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png",
+          "name": "TestBook",
+          "pages_number": 123,
+        },
+        "BookId": 1,
+        "UserId": 4,
+        "body": "TestBody",
+        "id": 1,
+        "likes": Array [],
+        "title": "TestTitle",
+      },
+    ],
+    "totalPages": 1,
+  },
+  "msg": "Request successful",
+}
+`;
+
+exports[`User API routes GET /users/:user_id/reviews when passed id corresponds to an existing user but they do not have reviews body matches snapshot 1`] = `
+Object {
+  "code": 200,
+  "msg": "Request successful, but user has not written reviews",
+}
+`;
+
+exports[`User API routes PATCH /users/:user_id user data to modify is valid body matches snapshot 1`] = `
+Object {
+  "code": 200,
+  "data": Object {
+    "description": "soy una persona",
+    "email": "email4@uc.cl",
+    "first_name": "name4",
+    "id": 1,
+    "is_admin": false,
+    "last_name": "lastname4",
+    "profile_picture": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png",
+    "username": "username4",
+  },
+  "msg": "User modified successfully",
+}
+`;
+
+exports[`User API routes POST /users user data is valid body matches snapshot 1`] = `
+Object {
+  "code": 201,
+  "data": Object {
+    "description": "soy una persona",
+    "email": "email3@uc.cl",
+    "first_name": "name3",
+    "id": 3,
+    "is_admin": false,
+    "last_name": "lastname3",
+    "profile_picture": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png",
+    "username": "username3",
+  },
+  "msg": "User created successfully",
+}
+`;

@@ -1,0 +1,47 @@
+name: IIC2513 Node CI
+
+on: pull_request
+
+jobs:
+  tests:
+    name: Tests and linters
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: postgresql://localhost/postgres
+      DB_DIALECT: postgres
+      DB_USERNAME: postgres
+      DB_PASSWORD: password
+      JWT_SECRET: some-secret
+      NODE_ENV: test
+    services:
+      db:
+        env:
+          POSTGRES_HOST_AUTH_METHOD: trust
+        image: postgres:12.4
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    
+    strategy:
+      matrix:
+        node-version: [ 12.x ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: yarn install
+      - name: Setup Database
+        run: |
+          yarn sequelize db:create
+          yarn sequelize db:migrate
+      - name: Run ESLint
+        run: yarn lint
+      - name: Run jest tests
+        run: yarn test --silent

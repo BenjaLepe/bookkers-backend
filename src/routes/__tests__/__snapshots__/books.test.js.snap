@@ -1,0 +1,249 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Book routes DELETE /books/:book_id/reviews/:review_id Admin request to delete other users review body matches snapshot 1`] = `
+Object {
+  "code": 201,
+  "data": Array [
+    Object {
+      "BookId": 1,
+      "UserId": 1,
+      "body": "TestBody2",
+      "id": 7,
+      "title": "TestTitle2",
+    },
+  ],
+  "msg": "Review deleted successfully",
+}
+`;
+
+exports[`Book routes DELETE /books/:book_id/reviews/:review_id User request to delete own review body matches snapshot 1`] = `
+Object {
+  "code": 201,
+  "data": Array [
+    Object {
+      "BookId": 1,
+      "UserId": 1,
+      "body": "TestBody2",
+      "id": 7,
+      "title": "TestTitle2",
+    },
+    Object {
+      "BookId": 1,
+      "UserId": 2,
+      "body": "TestBody3",
+      "id": 8,
+      "title": "TestTitle3",
+    },
+  ],
+  "msg": "Review deleted successfully",
+}
+`;
+
+exports[`Book routes GET /books body match snapshot 1`] = `
+Object {
+  "code": 200,
+  "data": Object {
+    "books": Array [
+      Object {
+        "ISBN": "123-4-56-78910-0",
+        "author": "TestAuthor",
+        "editorial": "TestEditorial",
+        "genre": "TestGenre",
+        "id": 1,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png",
+        "name": "TestBook",
+        "pages_number": 123,
+      },
+      Object {
+        "ISBN": "123-4-56-78910-1",
+        "author": "TestAuth2",
+        "editorial": "TestEditorial2",
+        "genre": "TestGenre2",
+        "id": 2,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png",
+        "name": "1983",
+        "pages_number": 123,
+      },
+    ],
+    "pageNumber": 1,
+    "totalPages": 1,
+  },
+  "msg": "Request successful",
+}
+`;
+
+exports[`Book routes GET /books/:book_id/reviews when passed id corresponds to existing book response body matches snapshot 1`] = `
+Object {
+  "code": 200,
+  "data": Object {
+    "pageNumber": 1,
+    "reviews": Array [
+      Object {
+        "BookId": 1,
+        "User": Object {
+          "description": null,
+          "email": "testemail@test.com",
+          "first_name": "TestFirstName",
+          "id": 1,
+          "is_admin": true,
+          "last_name": "TestLastName",
+          "profile_picture": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png",
+          "username": "TestUsername",
+        },
+        "UserId": 1,
+        "body": "TestBody",
+        "id": 1,
+        "likes": Array [],
+        "title": "TestTitle",
+      },
+    ],
+    "totalPages": 1,
+  },
+  "msg": "Request successful",
+}
+`;
+
+exports[`Book routes GET /books/:book_id/reviews/:review_id when passed book_id and review_id are in database response body matches snapshot 1`] = `
+Object {
+  "code": 200,
+  "data": Object {
+    "Book": Object {
+      "name": "TestBook",
+    },
+    "BookId": 1,
+    "User": Object {
+      "username": "TestUsername",
+    },
+    "UserId": 1,
+    "body": "TestBody",
+    "id": 3,
+    "likes": Array [],
+    "title": "TestTitle",
+  },
+  "msg": "Request successful",
+}
+`;
+
+exports[`Book routes GET /books/:book_id/reviews/:review_id/reports request has admin auth token response body matches snapshot 1`] = `
+Object {
+  "code": 200,
+  "data": Object {
+    "pageNumber": 1,
+    "reports": Array [
+      Object {
+        "ReviewId": 10,
+        "User": Object {
+          "username": "TestUsername2",
+        },
+        "UserId": 2,
+        "comment": "TestComment1",
+        "id": 2,
+      },
+      Object {
+        "ReviewId": 10,
+        "User": Object {
+          "username": "TestUsername",
+        },
+        "UserId": 1,
+        "comment": "TestComment2",
+        "id": 3,
+      },
+    ],
+    "review": Object {
+      "Book": Object {
+        "name": "TestBook",
+      },
+      "BookId": 1,
+      "User": Object {
+        "username": "TestUsername",
+      },
+      "UserId": 1,
+      "body": "TestBody1",
+      "id": 10,
+      "likes": Array [],
+      "title": "TestTitle1",
+    },
+    "totalPages": 1,
+  },
+  "msg": "Reports found successfully",
+}
+`;
+
+exports[`Book routes PATCH /books/:book_id User is an admin body matches snapshot 1`] = `
+Object {
+  "code": 200,
+  "data": Object {
+    "ISBN": "123-4-56-78910-1",
+    "author": "TestAuth2",
+    "editorial": "TestEditorial2",
+    "genre": "TestGenre2",
+    "id": 2,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png",
+    "name": "1983",
+    "pages_number": 123,
+  },
+  "msg": "Book modified successfully",
+}
+`;
+
+exports[`Book routes PATCH /books/:book_id User is not an admin body matches snapshot 1`] = `
+Object {
+  "code": 403,
+  "msg": "Only admin users can modify books",
+}
+`;
+
+exports[`Book routes PATCH /books/:book_id/reviews/:review_id Admin requests to modify review body matches snapshot 1`] = `
+Object {
+  "code": 200,
+  "data": Object {
+    "BookId": 2,
+    "UserId": 1,
+    "body": "newBody",
+    "id": 5,
+    "title": "newTitle",
+  },
+  "msg": "Review updated successfully",
+}
+`;
+
+exports[`Book routes PATCH /books/:book_id/reviews/:review_id User requests to modify own review body matches snapshot 1`] = `
+Object {
+  "code": 200,
+  "data": Object {
+    "BookId": 1,
+    "UserId": 2,
+    "body": "newBody",
+    "id": 4,
+    "title": "newTitle",
+  },
+  "msg": "Review updated successfully",
+}
+`;
+
+exports[`Book routes POST /books/:book_id/reviews review is valid and request has valid token response body matches snapshot 1`] = `
+Object {
+  "code": 201,
+  "data": Object {
+    "BookId": 2,
+    "UserId": 2,
+    "body": "TestBody2",
+    "id": 2,
+    "title": "TestTitle2",
+  },
+  "msg": "Review created successfully",
+}
+`;
+
+exports[`Book routes POST /books/:book_id/reviews/:review_id/reports report is valid and request has valid token response body matches snapshot 1`] = `
+Object {
+  "code": 201,
+  "data": Object {
+    "ReviewId": 9,
+    "UserId": 2,
+    "comment": "TestComment1",
+    "id": 1,
+  },
+  "msg": "Report created successfully",
+}
+`;

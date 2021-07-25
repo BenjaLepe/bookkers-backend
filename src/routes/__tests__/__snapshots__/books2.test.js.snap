@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Book API routes DELETE /books/:book_id/reviews/:review_id/likes user is auth, has liked this review before, book and review id are valid body match snapshot 1`] = `
+Object {
+  "code": 200,
+  "data": Object {
+    "BookId": 4,
+    "UserId": 1,
+    "body": "TestBody",
+    "id": 2,
+    "title": "TestTitle",
+  },
+  "msg": "Review unliked successfully",
+}
+`;
+
+exports[`Book API routes GET /books/:book_id when passed id corresponds to an existing book body matches snapshot 1`] = `
+Object {
+  "code": 200,
+  "data": Object {
+    "ISBN": "123-4-56-78910-7",
+    "author": "TestAuthor",
+    "editorial": "TestEditorial",
+    "genre": "TestGenre",
+    "id": 1,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png",
+    "name": "TestBook_",
+    "pages_number": 123,
+  },
+  "msg": "Book found successfully",
+}
+`;
+
+exports[`Book API routes POST /books book data is valid body matches snapshot 1`] = `
+Object {
+  "code": 201,
+  "data": Object {
+    "ISBN": "123-4-56-78910-8",
+    "author": "TestAuthor2",
+    "editorial": "TestEditorial2",
+    "genre": "TestGenre2",
+    "id": 2,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png",
+    "name": "TestBook8",
+    "pages_number": 1234,
+  },
+  "msg": "Book created successfully",
+}
+`;
+
+exports[`Book API routes POST /books/:book_id/reviews/:review_id/likes user is auth, book and review id are valid body matches snapshot 1`] = `
+Object {
+  "code": 201,
+  "data": Object {
+    "BookId": 3,
+    "UserId": 1,
+    "body": "TestBody",
+    "id": 1,
+    "title": "TestTitle",
+  },
+  "msg": "Review liked successfully",
+}
+`;
